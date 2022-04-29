@@ -14,15 +14,15 @@
                 $password = $_POST["pw"];
 
                 // Create connection
-                if ($_POST["db"]) {
-                    $mongo = new MongoDB\Client('mongodb://' . $username . ':' . $password . '@' . $servername . '/' . $database);
-                } else {
-                    $mongo = new MongoDB\Client('mongodb://' . $username . ':' . $password . '@' . $servername);
-                }
+                $mongo = new MongoDB\Client('mongodb://' . $username . ':' . $password . '@' . $servername);
 
                 // Check connection
                 try {
-                    $mongo -> listDatabases();
+                    if ($_POST["db"]) {
+                        $mongo -> selectDatabase($database);
+                    } else {
+                        $mongo -> getWriteConcern();
+                    }
                 }
                 catch (\MongoDB\Driver\Exception\ConnectionTimeoutException $connectionTimeoutException) {
                     die("<h3>Failed to connect to MongoDB</h3><samp>" . $connectionTimeoutException . "</samp>");
