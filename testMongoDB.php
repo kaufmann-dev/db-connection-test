@@ -6,7 +6,7 @@
             <?php
                 require 'vendor/autoload.php';
                 
-                error_reporting(E_ALL ^ E_WARNING);
+                // error_reporting(E_ALL ^ E_WARNING);
 
                 $servername   = $_POST["server"];
                 $database = $_POST["db"];
