@@ -4,7 +4,9 @@
     <div class="container">
         <p>
             <?php
+		echo "in php";
                 require 'vendor/autoload.php';
+		echo "require sucessful";
                 
                 // error_reporting(E_ALL ^ E_WARNING);
 
@@ -12,9 +14,11 @@
                 $database = $_POST["db"];
                 $username = $_POST["username"];
                 $password = $_POST["pw"];
+		echo "get post suicess";
 
                 // Create connection
                 $mongo = new MongoDB\Client('mongodb://' . $username . ':' . $password . '@' . $servername);
+		echo "connection suicess";
 
                 // Check connection
                 try {
@@ -28,6 +32,7 @@
                     die("<h3>Failed to connect to MongoDB</h3><samp>" . $connectionTimeoutException . "</samp>");
                 }
                 echo "<h3>Connected successfully</h3>";
+		echo "connection test suicess";
             ?>
         </p>
     </div>
