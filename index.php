@@ -23,8 +23,8 @@
       <label for="server">Server address:</label>
       <input type="text" id="server" name="server" placeholder="localhost" required><br>
 
-      <label for="db">Database (optional):</label>
-      <input type="text" id="db" name="db" placeholder="insy"><br>
+      <label class="db" for="db">Database (optional):</label>
+      <input class="db" type="text" id="db" name="db" placeholder="insy"><br class="db">
 
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" placeholder="michael" required><br>
@@ -53,10 +53,12 @@
       $('#connectionDetails').attr('action', 'testMongoDB.php');
       $('h1').text("Test MongoDB connection");
       $('#changeDB').text("MySQL");
+      $('.db').hide();
     }, function() {
       $('#connectionDetails').attr('action', 'testMySQL.php');
       $('h1').text("Test MySQL connection");
       $('#changeDB').text("MongoDB");
+      $('.db').show();
     });
   </script>
 

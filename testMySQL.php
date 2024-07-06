@@ -17,7 +17,7 @@
                 } else {
                     $mysqli = new mysqli($servername, $username, $password);
                 }
-                
+
                 // Check connection
                 if ($mysqli -> connect_error) {
                     die("<h3>Failed to connect to MySQL</h3><samp>" . $mysqli -> connect_error . "</samp>");

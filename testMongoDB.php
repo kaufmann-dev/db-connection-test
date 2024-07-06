@@ -5,11 +5,12 @@
         <p>
             <?php
                 require 'vendor/autoload.php';
-                
+
                 error_reporting(E_ALL ^ E_WARNING);
+                //ini_set('display_errors', 1);
 
                 $servername   = $_POST["server"];
-                $database = $_POST["db"];
+                //$database = $_POST["db"];
                 $username = $_POST["username"];
                 $password = $_POST["pw"];
 
@@ -18,14 +19,9 @@
 
                 // Check connection
                 try {
-                    if ($_POST["db"]) {
-                        $mongo -> selectDatabase($database);
-                    } else {
-                        $mongo -> getWriteConcern();
-                    }
-                }
-                catch (\MongoDB\Driver\Exception\ConnectionTimeoutException $connectionTimeoutException) {
-                    die("<h3>Failed to connect to MongoDB</h3><samp>" . $connectionTimeoutException . "</samp>");
+                    $mongo -> listDatabases();
+                } catch (\Exception $e){
+                    die("<h3>Failed to connect to MongoDB</h3><samp>" . $e . "</samp>");
                 }
                 echo "<h3>Connected successfully</h3>";
             ?>
