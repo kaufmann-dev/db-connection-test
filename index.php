@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Test MySQL connection</title>
+    <title>Test DB connection</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,9 +42,9 @@
     $("form").submit(function(){
       var dots = window.setInterval( function() {
         var wait = document.getElementById("loadingMsgContainer");
-        if ( wait.innerHTML.length > 3 ) 
+        if ( wait.innerHTML.length > 3 )
           wait.innerHTML = "";
-        else 
+        else
           wait.innerHTML += ".";
       }, 100);
     });
